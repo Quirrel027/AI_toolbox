@@ -18,7 +18,7 @@
 
 在開發途中遇到了API 額度不足的問題。
 
-<img width="718" height="408" alt="image" src="https://github.com/user-attachments/assets/a27a0123-409e-4a94-9989-10968b8e8470" />
+<img width="400" height="408" alt="image" src="https://github.com/user-attachments/assets/a27a0123-409e-4a94-9989-10968b8e8470" />
 
 詢問ChatGPT如何解決
 <img width="960" height="895" alt="5" src="https://github.com/user-attachments/assets/01b2e58c-e177-4867-a0b0-651bd56df5f6" />
