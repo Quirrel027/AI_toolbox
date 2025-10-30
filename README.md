@@ -6,7 +6,7 @@
 
 ---
 
-## 🛠️ 開發過程記錄 (Development Log)
+## 開發過程
 
 ### 1. 事前準備與環境配置
 
@@ -17,6 +17,7 @@
 ### 2. 
 
 在開發途中遇到了API 額度不足的問題。
+
 <img width="718" height="408" alt="image" src="https://github.com/user-attachments/assets/a27a0123-409e-4a94-9989-10968b8e8470" />
 
 詢問ChatGPT如何解決
