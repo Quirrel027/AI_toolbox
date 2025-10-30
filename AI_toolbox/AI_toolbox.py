@@ -7,7 +7,7 @@ import os
 # -------------------- 側邊欄 --------------------
 with st.sidebar:
     choose = option_menu(
-        "工具欄",  
+        "工具欄",  # <-- 標題文字
         ["簡介", "AI聊天", "AI繪圖"],
         icons=['house', 'person lines fill', 'app-indicator'],
         menu_icon="list",
@@ -15,9 +15,12 @@ with st.sidebar:
         styles={
             "container": {"padding": "5!important", "background-color": "#fafafa"},
             "icon": {"color": "orange", "font-size": "25px"},
-            "nav-link": {"font-size": "16px", "text-align": "left", "color": "orange", "--hover-color": "#eee"},
-            "nav-link-selected": {"background-color": "#24A608", "color": "orange"},
-            "menu-title": {"font-size": "18px", "font-weight": "bold", "color": "orange"} 
+            # 1. 選項文字改為黑色
+            "nav-link": {"font-size": "16px", "text-align": "left", "color": "black", "--hover-color": "#eee"},
+            # 1. 選中選項文字改為黑色
+            "nav-link-selected": {"background-color": "#24A608", "color": "black"},
+            # 1. 選單標題「工具欄」文字改為黑色
+            "menu-title": {"font-size": "18px", "font-weight": "bold", "color": "black"}
         }
     )
 # -------------------- 簡介 --------------------
@@ -27,19 +30,42 @@ if choose == "簡介":
         st.markdown("""
         <style>
         .font {
-            font-size:35px; 
-            font-family:'Cooper Black'; 
+            font-size:35px;
+            font-family:'Cooper Black';
             color:#FF9633;
-        } 
+        }
         </style>
         """, unsafe_allow_html=True)
         st.markdown('<p class="font">關於作者</p>', unsafe_allow_html=True)
 
     with col2:
-        logo = Image.open("logo.jpg")  # 確保檔案存在
-        st.image(logo, width=130)
+        # 假設 logo.jpg 檔案存在
+        try:
+            logo = Image.open("logo.jpg")
+            st.image(logo, width=130)
+        except FileNotFoundError:
+            st.warning("⚠ logo.jpg 檔案未找到，無法顯示圖片。")
 
-    st.markdown("**AI百寶箱，整合多種免費 AI 工具，歡迎使用！**")
+    st.markdown("---") # 分隔線
+
+    # 2. 新增的繁體中文介紹文字
+    intro_text = """
+    
+    **AI 百寶箱，整合多種免費 AI 工具，歡迎使用！**
+
+    ChatGPT 最近在網際網路上掀起了一陣熱潮，其高度智能化的功能能夠給我們的現實生活帶來諸多的便利。它可以幫助你寫文章、寫報告、寫週報、做表格、做策劃，甚至還會寫程式碼。只要與文字相關的工作，它幾乎都能給出一份滿意的答卷。
+    
+    作者趁著有空上去玩了一下，也發現了其中的強大之處。
+
+    那麼本篇文章作者就透過 Streamlit 框架來搭建一個 **AI 百寶箱** 的網頁，其中裡面集成了一系列功能，包括智能聊天機器人、智能繪畫師。大家有興趣還可以另外添加例如配音等功能，核心邏輯就是呼叫第三方的 API 接口，然後做一層封裝和優化。
+    
+    原出處:https://www.jb51.net/article/276253.htm
+    """
+    st.markdown(intro_text)
+
+    # 3. 加上左側選擇工具開始使用的提示
+    st.markdown("---")
+    st.info("💡 請利用左側的**工具欄**選擇功能開始使用！")
 
 # -------------------- AI 聊天（使用 OpenRouter） --------------------
 elif choose == "AI聊天":
